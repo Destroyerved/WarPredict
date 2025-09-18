@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 import os
 import sys
-os.chdir(r'c:\Users\vedan\OneDrive\Desktop\WarPredict1')
-sys.path.insert(0, r'c:\Users\vedan\OneDrive\Desktop\WarPredict1')
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+os.chdir(BASE_DIR)
+sys.path.insert(0, str(BASE_DIR))
 
 import uvicorn
 
