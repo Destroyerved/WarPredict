@@ -4,6 +4,7 @@ const API_BASE = import.meta.env.VITE_API_URL || '/api'
 
 const apiClient = axios.create({
   baseURL: API_BASE,
+  timeout: 15000,
   headers: {
     'Content-Type': 'application/json'
   }
@@ -12,8 +13,9 @@ const apiClient = axios.create({
 apiClient.interceptors.response.use(
   response => response.data,
   error => {
-    console.error('API Error:', error)
-    return Promise.reject(error)
+    const message = error.response?.data?.detail || error.response?.data?.message || error.message || 'API request failed'
+    console.error('API Error:', message)
+    return Promise.reject(new Error(message))
   }
 )
 
