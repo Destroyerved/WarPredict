@@ -39,7 +39,7 @@ A dual-purpose geopolitical intelligence system combining ML-based conflict pred
 ## Project Structure
 
 ```
-WarPredict1/
+WarPredict/
 ├── backend/              # FastAPI backend
 │   ├── api/             # Routes & schemas
 │   ├── models/          # XGBoost, LSTM, NLP models
